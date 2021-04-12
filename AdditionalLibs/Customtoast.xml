@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.00</doclet-version-NOT-library-version>
+    <class>
+        <name>com.rootsoft.customtoast.CustomToast</name>
+        <shortname>CustomToast</shortname>
+        <owner>process</owner>
+        <permission>android.permission.WRITE_SECURE_SETTINGS</permission>
+        <method>
+            <name>Initialize</name>
+            <comment>Initializes the CustomToast Library.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Show</name>
+            <comment>Shows a custom toastmessage
+message: the message to be displayed. (a string)
+duration: in milliseconds
+ a Gravity constant, an x-position offset, and a y-position offset.
+ For example, if you decide that the toast should appear in the top corner.
+ (Gravity.TOP, 0, 0)</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>message</name>
+                <type>java.lang.CharSequence</type>
+            </parameter>
+            <parameter>
+                <name>duration</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>gravity</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>xOffset</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>yOffset</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>ShowBitmap</name>
+            <comment>Shows a custom toastmessage with a bitmap.
+message: the message to be displayed. (a string)
+duration: in milliseconds
+ a Gravity constant, an x-position offset, and a y-position offset.
+ For example, if you decide that the toast should appear in the top corner.
+ (Gravity.TOP, 0, 0)</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>message</name>
+                <type>java.lang.CharSequence</type>
+            </parameter>
+            <parameter>
+                <name>duration</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>gravity</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>xOffset</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>yOffset</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>bm</name>
+                <type>android.graphics.Bitmap</type>
+            </parameter>
+        </method>
+    </class>
+    <version>1.1</version>
+    <author>XverhelstX</author>
+</root>

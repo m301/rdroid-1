@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.00</doclet-version-NOT-library-version>
+    <class>
+        <name>com.rootsoft.togglelibrary.ToggleLibrary</name>
+        <shortname>Toggle</shortname>
+        <owner>process</owner>
+        <permission>android.permission.WRITE_SECURE_SETTINGS</permission>
+        <permission>android.permission.REBOOT</permission>
+        <permission>android.permission.WRITE_SETTINGS</permission>
+        <permission>android.permission.BLUETOOTH</permission>
+        <permission>android.permission.BLUETOOTH_ADMIN</permission>
+        <permission>android.permission.CHANGE_WIFI_STATE</permission>
+        <permission>android.permission.ACCESS_WIFI_STATE</permission>
+        <permission>android.permission.UPDATE_DEVICE_STATS</permission>
+        <permission>android.permission.MODIFY_PHONE_STATE</permission>
+        <method>
+            <name>userActivity</name>
+            <comment>User activity happened.
+ Turns the device from whatever state it's in to full on, and resets the auto-off timer.
+when: is used to order this correctly with the wake lock calls. This time should be in the SystemClock.uptimeMillis() time base.
+noChangeLights: should be true if you don't want the lights to turn on because of this event. This is set when the power key goes down. We want the device to stay on while the button is down, but we're about to turn off. Otherwise the lights flash on and then off and it looks weird.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>when</name>
+                <type>long</type>
+            </parameter>
+            <parameter>
+                <name>noChangeLights</name>
+                <type>boolean</type>
+            </parameter>
+        </method>
+        <method>
+            <name>TurnGPSOn</name>
+            <comment>Turns the GPS on. Note that this method actually activate the GPS immediately (unlike most other methods that
+goes to the Settings Screen.).</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>TurnAirplaneModeOn</name>
+            <comment>Turns the airplane modus on.
+status: </comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>TurnRingerOff</name>
+            <comment>Sets the RingerMode off.
+RingerMode: </comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>TurnAirplaneModeOff</name>
+            <comment>Turns the airplane modus off
+status: </comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>TurnGPSOff</name>
+            <comment>Turns the GPS off. Note that this method actually disables the GPS immediately (unlike most other methods that
+goes to the Settings Screen.).</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>TurnDataConnectionOff</name>
+            <comment>Turns the Mobile Data Connection off.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>TurnRingerOn</name>
+            <comment>Sets the RingerMode on.
+RingerMode: </comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>TurnStreamVolumeOn</name>
+            <comment>Sets the Media Volume to the maximum
+value: </comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>Reboot</name>
+            <comment>Reboots the device</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>ToggleDataConnection</name>
+            <comment>Toggles the Mobile Data Connection.
+ There are notifications that it doesn't work on some devices and the emulator</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>TurnDataConnectionOn</name>
+            <comment>Turns the Mobile Data Connection on.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>TurnBluetoothOn</name>
+            <comment>Turns Bluetooth on.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>Initialize</name>
+            <comment>Initializes the ToggleLibrary.
+ba: </comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <method>
+            <name>isScreenOn</name>
+            <comment>Returns whether the screen is currently on. The screen could be bright or dim.</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>ToggleAudio</name>
+            <comment>Toggles the RingerMode automatically in the following order:
+ Silent -&gt; Vibrate
+ Vibrate -&gt; Normal
+ Normal -&gt; Silent</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>goToSleep</name>
+            <comment>Force the device to go to sleep. Overrides all the wake locks that are held.
+time: is used to order this correctly with the wake lock calls. The time should be in the SystemClock.uptimeMillis() time base.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>time</name>
+                <type>long</type>
+            </parameter>
+        </method>
+        <method>
+            <name>TurnRingerMode</name>
+            <comment>Sets the RingerMode to:
+ NORMAL, VIBRRATE or SILENT
+RingerMode: </comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>RingerMode</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>TurnBrightnessOn</name>
+            <comment>Turns the brightness on</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>ToggleWiFi</name>
+            <comment>Toggles the Wifi. If it's enabled, it sets it disabled and vice-versa.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>ToggleGPS</name>
+            <comment>Toggles the GPS. Note that this method actually activate the GPS immediately (unlike most other methods that
+goes to the Settings Screen.).</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>ToggleAirplaneMode</name>
+            <comment>Toggles the AirplaneMode.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>TurnStreamVolumeOff</name>
+            <comment>Turns the Media Volume off.
+value: </comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>ToggleBluetooth</name>
+            <comment>Toggles the bluetooth. If it's enabled, it sets it disabled and vice-versa.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>TurnBrightness</name>
+            <comment>Turns the brightness.
+ 0 to 255</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>value</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>TurnWiFiOff</name>
+            <comment>Turns WiFi off.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>TurnWiFiOn</name>
+            <comment>Turns WiFi on.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>TurnBluetoothOff</name>
+            <comment>Turns Bluetooth off.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>TurnBrightnessOff</name>
+            <comment>Turns the brightness off</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>TurnStreamVolume</name>
+            <comment>Sets the Media Volume
+value: </comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>value</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <property>
+            <name>WiFi</name>
+            <returntype>boolean</returntype>
+            <comment>Checks if Wifi is enabled or disabled</comment>
+        </property>
+        <property>
+            <name>RingerMode</name>
+            <returntype>int</returntype>
+            <comment>Gets the ringer mode.</comment>
+        </property>
+        <property>
+            <name>Bluetooth</name>
+            <returntype>boolean</returntype>
+            <comment>Checks if bluetooth is enabled or disabled</comment>
+        </property>
+        <property>
+            <name>DataConnection</name>
+            <returntype>boolean</returntype>
+            <comment>Checks if the Mobile Data Connection is enabled or disabled.</comment>
+        </property>
+        <property>
+            <name>GPS</name>
+            <returntype>boolean</returntype>
+            <comment>Checks if the GPS is enabled or disabled.</comment>
+        </property>
+        <property>
+            <name>AirplaneMode</name>
+            <returntype>boolean</returntype>
+            <comment>Checks if the airplane mode is enabled or disabled.</comment>
+        </property>
+        <field>
+            <name>RINGER_MODE_SILENT</name>
+            <comment>Ringer mode that will be silent and will not vibrate.</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>RINGER_MODE_NORMAL</name>
+            <comment>Ringer mode that may be audible and may vibrate.</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>RINGER_MODE_VIBRATE</name>
+            <comment>Ringer mode that will be silent and will vibrate.</comment>
+            <returntype>int</returntype>
+        </field>
+    </class>
+    <version>1.0</version>
+    <author>XverhelstX</author>
+</root>

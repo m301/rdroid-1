@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.02</doclet-version-NOT-library-version>
+    <class>
+        <name>mlsmb.MLsmb</name>
+        <shortname>MLsmb</shortname>
+        <owner>process</owner>
+        <event>Success(Name as String, Size as Long)</event>
+        <permission>android.permission.WRITE_EXTERNAL_STORAGE</permission>
+        <permission>android.permission.ACCESS_WIFI_STATE</permission>
+        <method>
+            <name>Initialize</name>
+            <comment>Initializes internal variables</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SmbCopy</name>
+            <comment>Copies a file TO or FROM the Samba server, including samba to samba copying.
+ 
+Calls the Success event when completed.
+
+The event contains the filename and file size as:
+
+varname_Success(Name as String, Size as Long)
+
+put any code you need to execute on successful copy in the event sub.
+ 
+ eventname_Success(Name As String, Size As Long)</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>FromFile</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>ToFile</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>eventname</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>smbInStream</name>
+            <comment>Creates an input stream from the file Afile that can be fed to another object.
+ 
+ Returns null if not successful.</comment>
+            <returntype>java.io.InputStream</returntype>
+            <parameter>
+                <name>Afile</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SmbDelete</name>
+            <comment>Deletes a file on the Samba server
+ 
+ Returns True on success.</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>Url</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>SmbFile</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SmbCredentials</name>
+            <comment>Set the user name, password, and domain for a samba server.
+ 
+ If set, this record will be passed to the server when the Smb methods are called.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>Username</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Password</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Domain</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SmbList</name>
+            <comment>Returns a list of SmbFile types on the samba server.
+ Check the FSerror string to see if authentication failed or is needed.
+ 
+ SmbUrl =  the SMB path to list
+ Pattern = an optional wildcard search pattern</comment>
+            <returntype>java.util.ArrayList</returntype>
+            <parameter>
+                <name>SmbUrl</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Pattern</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SmbMove</name>
+            <comment>Moves or renames files or directories on the Samba server
+ 
+ Returns True on success.</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>From</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>To</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>mkSmbDirs</name>
+            <comment>Makes a directory on the Samba server.
+ This method will create any missing elements of the new path.
+ 
+ Returns True on success.</comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>Dir</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Escape</name>
+            <comment>Escapes spaces, "(" and ")" characters in a filename
+ Returns the original string if already escaped.</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>fname</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SmbIP</name>
+            <comment>Returns the IP address of the Samba server</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>host</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <field>
+            <name>FSerror</name>
+            <comment></comment>
+            <returntype>java.lang.String</returntype>
+        </field>
+    </class>
+    <class>
+        <name>mlsmb.MLsmb.SmbFileWrapper</name>
+        <shortname>SambaFile</shortname>
+        <comment>The SmbFile type for manipulating individual files and directories on the Samba server.</comment>
+        <objectwrapper>jcifs.smb.SmbFile</objectwrapper>
+        <owner>process</owner>
+        <method>
+            <name>Parent</name>
+            <comment>Returns the parent directory</comment>
+            <returntype>java.lang.String</returntype>
+        </method>
+        <method>
+            <name>CanRead</name>
+            <comment>True is the file or directory is readable.</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>IsHidden</name>
+            <comment>True if this file or directory is hidden.</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>GetPath</name>
+            <comment>Returns the SMB path to this file or directory</comment>
+            <returntype>java.lang.String</returntype>
+        </method>
+        <method>
+            <name>GetType</name>
+            <comment>Returns an Int representing the type of SMB object for this SambaFile from 0 through 6
+ 
+ TYPE_FILESYSTEM, a regular file or directory
+ TYPE_WORKGROUP, A workgroup
+ TYPE_SERVER, a Samba server
+ TYPE_SHARE, a shared directory
+ TYPE_PRINTER, a shared printer
+ TYPE_NAMED_PIPE, a named pipe
+ TYPE_COMM, a communications device</comment>
+            <returntype>int</returntype>
+        </method>
+        <method>
+            <name>isDir</name>
+            <comment>Ckecks if this file is a directory.</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>GetServer</name>
+            <comment>Returns the Smaba server name</comment>
+            <returntype>java.lang.String</returntype>
+        </method>
+        <method>
+            <name>Name</name>
+            <comment>Returns the file name</comment>
+            <returntype>java.lang.String</returntype>
+        </method>
+        <method>
+            <name>CanWrite</name>
+            <comment>True if the directory or file can be written to.</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>ServerIp</name>
+            <comment>Returns the IP address of the server</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>Server</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>GetShare</name>
+            <comment>Returns the share name</comment>
+            <returntype>java.lang.String</returntype>
+        </method>
+        <method>
+            <name>LastModified</name>
+            <comment>Returns the modify date of this file</comment>
+            <returntype>long</returntype>
+        </method>
+        <method>
+            <name>IsFile</name>
+            <comment>True if this is a file and not a directory.</comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>DiskFree</name>
+            <comment>Returns the free space of this Samba share.</comment>
+            <returntype>long</returntype>
+        </method>
+        <method>
+            <name>IsInitialized</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>Size</name>
+            <comment>Returns the file size</comment>
+            <returntype>long</returntype>
+        </method>
+        <field>
+            <name>TYPE_COMM</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>TYPE_SERVER</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>TYPE_FILESYSTEM</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>TYPE_WORKGROUP</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>TYPE_NAMED_PIPE</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>TYPE_SHARE</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>TYPE_PRINTER</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+    </class>
+    <version>1.51</version>
+    <author>Jem Miller - Missing Link Software</author>
+    <dependsOn>jcifs</dependsOn>
+</root>

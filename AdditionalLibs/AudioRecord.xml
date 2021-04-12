@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.01</doclet-version-NOT-library-version>
+    <class>
+        <name>stevel05.audiorecord.AudioRecording</name>
+        <shortname>AudioRecord</shortname>
+        <owner>process</owner>
+        <permission>android.permission.RECORD_AUDIO</permission>
+        <method>
+            <name>Initialize</name>
+            <comment>Initialize AudioRecord:
+ 
+ AudioSource - Same as MediaRecorder
+ SampleRate - 44100 is standard and should work on all devices,22050,16000.11025 and 8000 may work on some
+ Channel config - Mono or Stereo depending on available hardware, Mono is the safe option
+ Audio format, 8 or 16 bit encoding
+ Buffer size - the total size (in bytes) of the buffer where audio data is written to during the recording. 
+ New audio data can be read from this buffer in smaller chunks than this size. 
+ See getMinBufferSize(int, int, int) to determine the minimum required buffer size for the successful 
+ creation of an AudioRecord instance. Using values smaller than getMinBufferSize() will 
+ result in an initialization failure.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+            <parameter>
+                <name>audioSource</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>sampleRateHz</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>channelConfig</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>audioFormat</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>bufferSize</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>GetMinBufferSize</name>
+            <comment>Returns the minimum buffer size required to record with the given parameters
+ -1 if the implementation was unable to query the hardware for its output properties
+ -2 if the recording parameters are not supported by the hardware, or an invalid parameter was passed</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>sampleRateHz</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>channelConfig</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>audioFormat</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>GetState</name>
+            <comment>Returns the state of the AudioRecord instance.
+ STATE_INITIALIZED = 1
+ STATE_UNINITIALIZED = 0</comment>
+            <returntype>int</returntype>
+        </method>
+        <method>
+            <name>GetPositionNotificationPeriod</name>
+            <comment>Returns the notification update period expressed in frames.</comment>
+            <returntype>int</returntype>
+        </method>
+        <method>
+            <name>GetAudioSource</name>
+            <comment>Returns the audio source as set in initialize</comment>
+            <returntype>int</returntype>
+        </method>
+        <method>
+            <name>SetPositionNotificationPeriod</name>
+            <comment>Sets the notification period expressed in frames.
+ if set you need a subroutine AudioRecord_PeriodPassed to be
+ called
+ 	0 = SUCCESS
+  -3 = ERROR_INVALID_OPERATION</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>frames</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>ReadBytes</name>
+            <comment>Reads audio data from the audio hardware for recording into a buffer.</comment>
+            <returntype>byte[]</returntype>
+            <parameter>
+                <name>offset</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>datasize</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>GetRecordingState</name>
+            <comment>Returns the recording state of the AudioRecord instance.
+ RECORDSTATE_RECORDING = 3;
+ RECORDSTATE_STOPPED = 1;</comment>
+            <returntype>int</returntype>
+        </method>
+        <method>
+            <name>GetChannelConfig</name>
+            <comment>returns the channel configuration as set in initialize</comment>
+            <returntype>int</returntype>
+        </method>
+        <method>
+            <name>Stop</name>
+            <comment>Stops recording</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>StartRecording</name>
+            <comment>Starts recording from the AudioRecord instance.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>ReadShort</name>
+            <comment>Reads audio data from the audio hardware for recording into a buffer.</comment>
+            <returntype>short[]</returntype>
+            <parameter>
+                <name>offset</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>datasize</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>GetChannelCount</name>
+            <comment>returns the channel count as set in initialize (channelconfig)</comment>
+            <returntype>int</returntype>
+        </method>
+        <method>
+            <name>SetNotificationMarkerPosition</name>
+            <comment>Sets the notification marker position expressed in frames
+ if set you need a subroutine AudioRecord_MarkerReached to be
+ called
+ returns 
+ 	0 = SUCCESS
+  -3 = ERROR_INVALID_OPERATION</comment>
+            <returntype>int</returntype>
+            <parameter>
+                <name>frames</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>GetSampleRate</name>
+            <comment>Returns the configured audio data sample rate in Hz</comment>
+            <returntype>int</returntype>
+        </method>
+        <method>
+            <name>GetAudioFormat</name>
+            <comment>Returns the audio format as set in initialize</comment>
+            <returntype>int</returntype>
+        </method>
+        <method>
+            <name>release</name>
+            <comment>Releases the native AudioRecord resources.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>GetNotificationMarkerPosition</name>
+            <comment>Returns the notification marker position expressed in frames
+ (Frame size = No Channels * (1 for 8bit, 2 for 16 bit))</comment>
+            <returntype>int</returntype>
+        </method>
+        <field>
+            <name>A_SRC_VOICE_RECOGNITION</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>CH_CONF_STEREO</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>SUCCESS</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>CH_CONF_MONO</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>ERROR_BAD_VALUE</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>STATE_UNINITIALIZED</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>A_SRC_MIC</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>RECORDSTATE_STOPPED</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>A_SRC_VOICE_CALL</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>RECORDSTATE_RECORDING</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>AF_PCM_8</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>AF_PCM_16</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>A_SRC_CAMCORDER</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>STATE_INITIALIZED</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>A_SRC_VOICE_UPLINK</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>A_SRC_VOICE_COMMINICATION</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>A_SRC_VOICE_DOWNLINK</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>ERROR</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>A_SRC_DEFAULT</name>
+            <comment>Constant Value 0</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>ERROR_INVALID_OPERATION</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+    </class>
+    <version>1.01</version>
+    <author>Steve Laming</author>
+</root>

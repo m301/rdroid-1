@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.00</doclet-version-NOT-library-version>
+    <class>
+        <name>lilivel.b4a.miscUtil.miscUtil</name>
+        <shortname>miscUtil</shortname>
+        <owner>activity</owner>
+        <permission>android.permission.GET_ACCOUNTS</permission>
+        <permission>android.permission.READ_CONTACTS</permission>
+        <permission>android.permission.WRITE_CONTACTS</permission>
+        <method>
+            <name>Initialize</name>
+            <comment>Common initialisations</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>ba</name>
+                <type>anywheresoftware.b4a.BA</type>
+            </parameter>
+        </method>
+        <method>
+            <name>createContactEntry2</name>
+            <comment>Creates an contact entry</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>name</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>photo</name>
+                <type>android.graphics.Bitmap</type>
+            </parameter>
+            <parameter>
+                <name>phones</name>
+                <type>anywheresoftware.b4a.objects.collections.Map</type>
+            </parameter>
+            <parameter>
+                <name>emails</name>
+                <type>anywheresoftware.b4a.objects.collections.Map</type>
+            </parameter>
+            <parameter>
+                <name>Note</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Website</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Organization</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>homeadress</name>
+                <type>anywheresoftware.b4a.objects.collections.Map</type>
+            </parameter>
+            <parameter>
+                <name>workadress</name>
+                <type>anywheresoftware.b4a.objects.collections.Map</type>
+            </parameter>
+        </method>
+        <method>
+            <name>GetContactMap</name>
+            <comment>Erzeut eine Map mit allen vorhandenen Kontakten
+ Key ist eine ID, mit der weitere Kontaktinfos abgefragt werden können</comment>
+            <returntype>anywheresoftware.b4a.objects.collections.Map</returntype>
+        </method>
+        <method>
+            <name>GetContactByID</name>
+            <comment>get contact entry</comment>
+            <returntype>anywheresoftware.b4a.objects.collections.Map</returntype>
+            <parameter>
+                <name>id</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>GetContactPhotoByID</name>
+            <comment></comment>
+            <returntype>android.graphics.Bitmap</returntype>
+            <parameter>
+                <name>id</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <field>
+            <name>TAG</name>
+            <comment></comment>
+            <returntype>java.lang.String</returntype>
+        </field>
+    </class>
+    <version>1.04</version>
+    <author>Michael Peter</author>
+</root>

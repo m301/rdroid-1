@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.05</doclet-version-NOT-library-version>
+    <class>
+        <name>anywheresoftware.b4a.agraham.richstring.RichStringBuilder</name>
+        <shortname>RichStringBuilder</shortname>
+        <comment>RichStringBuilder is a mutable RichString unlike regular RichStrings which are immutable.
+RichStringBuilder is especially useful when you need to concatenate many RichStrings.
+Methods of a RichStringBuilder return itself so methods may be repeatedly invoked</comment>
+        <objectwrapper>android.text.SpannableStringBuilder</objectwrapper>
+        <owner>process</owner>
+        <method>
+            <name>Initialize</name>
+            <comment>Initialise the RichStringBuilder.</comment>
+            <returntype>void</returntype>
+        </method>
+        <method>
+            <name>Insert</name>
+            <comment>Inserts the specified text at the specified offset.
+Returns the same object, so you can chain methods.
+Text can be a String, a RichString or a RichStringBuilder.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder</returntype>
+            <parameter>
+                <name>offset</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>text</name>
+                <type>java.lang.CharSequence</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Remove</name>
+            <comment>Removes the specified characters.
+StartOffset - The first character to remove.
+EndOffset - The ending index. This character will not be removed.
+Returns the same object, so you can chain methods.
+Text can be a String, a RichString or a RichStringBuilder.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder</returntype>
+            <parameter>
+                <name>startoffset</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>endoffset</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Append</name>
+            <comment>Appends the specified text at the end.
+Returns the same object, so you can chain methods.
+Text can be a String, a RichString or a RichStringBuilder.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder</returntype>
+            <parameter>
+                <name>text</name>
+                <type>java.lang.CharSequence</type>
+            </parameter>
+        </method>
+        <method>
+            <name>IsInitialized</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+        <property>
+            <name>Length</name>
+            <returntype>int</returntype>
+            <comment>Return the number of characters in this RichStringBuilder.</comment>
+        </property>
+        <property>
+            <name>Version</name>
+            <returntype>double</returntype>
+            <comment>Returns the version number of the library.</comment>
+        </property>
+    </class>
+    <class>
+        <name>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</name>
+        <shortname>RichString</shortname>
+        <comment>A RichString supports formatting of its contents at the individual character level.
+The formatting methods are available in two forms.
+
+The first form accepts a start and index for the region of the RichString to format
+in the same way that regions of ordinary strings are specified.
+
+The second form uses matched identifiers within the RichString contents to identify the
+regions to be formatted. The identifiers are arbitary strings used in pairs within the
+RichString content to bracket the regions to be formatted. Multiple regions within the
+RichString content can be specified in a single call.</comment>
+        <objectwrapper>android.text.SpannableString</objectwrapper>
+        <owner>process</owner>
+        <method>
+            <name>Underscore</name>
+            <comment>Sets the region to display underscored text.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>start</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>end</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>BackColor2</name>
+            <comment>Sets the background colour of the regions.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>color</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>metachars</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Style</name>
+            <comment>Sets the style of the region to one of the RichText.STYLE_XXXX constants.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>style</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>start</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>end</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Superscript</name>
+            <comment>Sets the region to display superscript text.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>start</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>end</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>ScaleX2</name>
+            <comment>Sets the horizontal size of the text in the region relative to the normal text.
+A value of 1.0 specifies the normal text size. i.e unchanged.
+A smaller value reduces the size and a larger value increases it.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>scale</name>
+                <type>float</type>
+            </parameter>
+            <parameter>
+                <name>metachars</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>RelativeSize</name>
+            <comment>Sets the size of the text in the region relative to the normal text.
+A value of 1.0 specifies the normal text size. i.e unchanged.
+A smaller value reduces the size and a larger value increases it.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>scale</name>
+                <type>float</type>
+            </parameter>
+            <parameter>
+                <name>start</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>end</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Strikethrough</name>
+            <comment>Sets the region to display struckthrough text.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>start</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>end</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>ScaleX</name>
+            <comment>Sets the horizontal size of the text in the region relative to the normal text.
+A value of 1.0 specifies the normal text size. i.e unchanged.
+A smaller value reduces the size and a larger value increases it.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>scale</name>
+                <type>float</type>
+            </parameter>
+            <parameter>
+                <name>start</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>end</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>IsInitialized</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+        </method>
+        <method>
+            <name>Initialize</name>
+            <comment>Initialise the RichString with the provided text.
+Text can be a String, a RichString or a RichStringBuilder.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>text</name>
+                <type>java.lang.CharSequence</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Style2</name>
+            <comment>Sets the style of the regions to one of the RichText.STYLE_XXXX constants.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>style</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>metachars</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Subscript</name>
+            <comment>Sets the region to display subscript text.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>start</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>end</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>TypefaceCustom</name>
+            <comment>Sets the typeface to be used for the region.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>Typeface</name>
+                <type>android.graphics.Typeface</type>
+            </parameter>
+            <parameter>
+                <name>start</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>end</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Underscore2</name>
+            <comment>Sets the regions to display underscored text.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>metachars</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>SetSpanBehaviour</name>
+            <comment>SpanBehaviour determines how each region behaves when it is edited and sshould be
+one of the SPAN_XXXX constants.
+On initialisation the default is SPAN_INCLUSIVE_EXCLUSIVE;
+
+Unlike a RichStringFormatter each region may be added with its own SpanBehaviour.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>spanbehaviour</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>BackColor</name>
+            <comment>Sets the background colour of the region.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>color</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>start</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>end</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>RelativeSize2</name>
+            <comment>Sets the size of the text in the regions relative to the normal text.
+A value of 1.0 specifies the normal text size. i.e unchanged.
+A smaller value reduces the size and a larger value increases it.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>scale</name>
+                <type>float</type>
+            </parameter>
+            <parameter>
+                <name>metachars</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>TypefaceCustom2</name>
+            <comment>Sets the typeface to be used for the regions.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>Typeface</name>
+                <type>android.graphics.Typeface</type>
+            </parameter>
+            <parameter>
+                <name>metachars</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Color</name>
+            <comment>Sets the text colour of the region.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>color</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>start</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>end</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Superscript2</name>
+            <comment>Sets the regions to display superscript text.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>metachars</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Strikethrough2</name>
+            <comment>Sets the regions to display struckthrough text.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>metachars</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Typeface</name>
+            <comment>Sets the typeface family to be used for the region.
+Examples are "monospace", "serif", and "sans-serif".</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>typefamily</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>start</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>end</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Typeface2</name>
+            <comment>Sets the typeface family to be used for the regions.
+Examples are "monospace", "serif", and "sans-serif".</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>typefamily</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>metachars</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Color2</name>
+            <comment>Sets the text colour of the regions.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>color</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>metachars</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Subscript2</name>
+            <comment>Sets the regions to display subscript text.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>metachars</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <property>
+            <name>Length</name>
+            <returntype>int</returntype>
+            <comment>Return the number of characters in this RichString.</comment>
+        </property>
+        <field>
+            <name>SPAN_INCLUSIVE_INCLUSIVE</name>
+            <comment>Regions of this type expand to include text inserted at either their start or end point.
+If two regions adjoin then the rightmost region format appears to be adopted.
+For example, where R(ed) and B(Blue) are red and blue regions of a string RBR 
+and r(ed) and b(lue) and n(ormal) are the color of inserted characters
+then this span constant produces rRbBrRr</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>STYLE_BOLD</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>STYLE_BOLD_ITALIC</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>STYLE_ITALIC</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>STYLE_NORMAL</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>SPAN_INCLUSIVE_EXCLUSIVE</name>
+            <comment>Non zero length regions of type SPAN_INCLUSIVE_EXCLUSIVE expand to include text inserted at
+their start point but not at their end point.
+For example, where R(ed) and B(Blue) are red and blue regions of a string RBR 
+and r(ed) and b(lue) and n(ormal) are the color of inserted characters
+then this span constant produces rRbBrRn
+This was the default in previous versions of RichStringFormatter.</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>SPAN_EXCLUSIVE_EXCLUSIVE</name>
+            <comment>Regions of this type do not expand to include text inserted at either their start or end point.
+For example, where R(ed) and B(Blue) are red and blue regions of a string RBR 
+and r(ed) and b(lue) and n(ormal) are the color of inserted characters
+then this span constant produces nRnBnRn</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>SPAN_EXCLUSIVE_INCLUSIVE</name>
+            <comment>Non zero length regions of this type expand to include text inserted at their end point
+but not at their start point.
+For example, where R(ed) and B(Blue) are red and blue regions of a string RBR 
+and r(ed) and b(lue) and n(ormal) are the color of inserted characters
+then this span constant produces nRrBbRr</comment>
+            <returntype>int</returntype>
+        </field>
+    </class>
+    <class>
+        <name>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichStringFormatter</name>
+        <shortname>RichStringFormatter</shortname>
+        <comment>A RichStringFormatter provides a very efficient way of applying multiple formats to
+a RichString using matched identifiers within the RichString contents to identify the
+regions to be formatted.
+
+Each of the RichString format commands iterates along the entire RichString
+so applying several different formats to the same RichString invokes several iterations.
+This is fine for short strings like Labels but may take a significant time for longer text
+with more complicated formatting.
+
+In constrast a RichStringFormatter will format a RichString in a single pass over the string.
+However in order to accomplish this some initialisation work is necessary to define the
+formatting tokens that will be accepted by the formatter. Once initialised a RichStringFormatter
+may be used repeatedly on RichStrings as long as they are using the same tokens for formatting
+as the RichStringFormatter was initialised to expect.
+
+All formatting tokens must start and end with the characters specified in Initialize.
+Note that start and end characters need not be different, the same character can be used for both.
+Formatting tokens are case-sensitive and may be of arbitrary length.
+
+Unlike XML or HTML formatting tokens do not need to be properly nested. They may overlap with no
+adverse effect and the resulting formatting will be as expected.</comment>
+        <owner>process</owner>
+        <method>
+            <name>Initialize</name>
+            <comment>Initialise the formatter with the start and end characters of each token.
+The characters are taken from the start and end characters of the sample token.
+Adding a token that does not start and end correctly will throw an exception.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>sampletoken</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>Format</name>
+            <comment>Format the specified RichString using the token set built using AddToken.
+SpanBehaviour determines how each region behaves when it is edited and should be
+one of the SPAN_XXXX constants.
+
+Returns a new RichString.</comment>
+            <returntype>anywheresoftware.b4a.agraham.richstring.RichStringBuilder.RichString</returntype>
+            <parameter>
+                <name>richstring</name>
+                <type>android.text.SpannableString</type>
+            </parameter>
+            <parameter>
+                <name>spanbehaviours</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>UnpairedTokens</name>
+            <comment>Returns a String array containing any tokens that remained unpaired after Format.
+A zero length array is returned if there are no unpaired tokens.</comment>
+            <returntype>java.lang.String[]</returntype>
+        </method>
+        <method>
+            <name>AddToken</name>
+            <comment>Add a token that will be recognised when formatting a RichString. As many tokens as
+required may be added and once added may be used across multiple invocations of Format.
+
+token - is the token that must start and end with the same characters specified in Initialize.
+format - is one of the RichStringFormatter FORMAT_XXXX constants
+data - is any data relevant to the specified format as used in the RichString format methods.</comment>
+            <returntype>void</returntype>
+            <parameter>
+                <name>token</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>format</name>
+                <type>int</type>
+            </parameter>
+            <parameter>
+                <name>data</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>UnimplementedTokens</name>
+            <comment>Returns a String array containing any tokens that were found in the RichString
+but were not added to the formatter. 
+A zero length array is returned if there are no unimplemented tokens.</comment>
+            <returntype>java.lang.String[]</returntype>
+        </method>
+        <field>
+            <name>SPAN_INCLUSIVE_INCLUSIVE</name>
+            <comment>Regions of this type expand to include text inserted at either their start or end point.
+If two regions adjoin then the rightmost region format appears to be adopted.
+For example, where R(ed) and B(Blue) are red and blue regions of a string RBR 
+and r(ed) and b(lue) and n(ormal) are the color of inserted characters
+then this span constant produces rRbBrRr</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>STYLE_BOLD</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>STYLE_BOLD_ITALIC</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>STYLE_ITALIC</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>FORMAT_RELATIVESIZE</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>FORMAT_TYPEFACE</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>FORMAT_SUPERSCRIPT</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>SPAN_INCLUSIVE_EXCLUSIVE</name>
+            <comment>Non zero length regions of type SPAN_INCLUSIVE_EXCLUSIVE expand to include text inserted at
+their start point but not at their end point.
+For example, where R(ed) and B(Blue) are red and blue regions of a string RBR 
+and r(ed) and b(lue) and n(ormal) are the color of inserted characters
+then this span constant produces rRbBrRn
+This was the default in previous versions of RichStringFormatter.</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>FORMAT_STRIKETHROUGH</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>FORMAT_SUBSCRIPT</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>SPAN_EXCLUSIVE_INCLUSIVE</name>
+            <comment>Non zero length regions of this type expand to include text inserted at their end point
+but not at their start point.
+For example, where R(ed) and B(Blue) are red and blue regions of a string RBR 
+and r(ed) and b(lue) and n(ormal) are the color of inserted characters
+then this span constant produces nRrBbRr</comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>FORMAT_BACKCOLOR</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>FORMAT_STYLE</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>FORMAT_UNDERSCORE</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>FORMAT_COLOR</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>STYLE_NORMAL</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>FORMAT_SCALEX</name>
+            <comment></comment>
+            <returntype>int</returntype>
+        </field>
+        <field>
+            <name>SPAN_EXCLUSIVE_EXCLUSIVE</name>
+            <comment>Regions of this type do not expand to include text inserted at either their start or end point.
+For example, where R(ed) and B(Blue) are red and blue regions of a string RBR 
+and r(ed) and b(lue) and n(ormal) are the color of inserted characters
+then this span constant produces nRnBnRn</comment>
+            <returntype>int</returntype>
+        </field>
+    </class>
+    <version>1.5</version>
+    <comment>This library contains RichString and RichStringBuilder objects. These objects are
+analogous to the normal String and StringBuilder. However RichStrings can contain
+formatting information that controls how they are drawn when used as the text in a View.
+
+This library also contains a RichStringFormatter object. This object, once suitably
+initialised, will efficiently format RichStrings passed to it. For long strings that
+require many changes of format this is much more efficien than using the individual
+RichString formatting commands.</comment>
+    <author>Andrew Graham</author>
+</root>
